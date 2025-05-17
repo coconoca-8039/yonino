@@ -1,16 +1,25 @@
-import numpy as np
-import pandas as pd
+#関数のネスト化 Nested Function
+def outer(outer_param):
+    outer_param1 = "Kotoha"
 
-# NumPyで乱数のデータを作成（3行×3列）
-data = np.random.rand(3, 3)
+    def inner():
+        print("This is inner function")
+        print(outer_param)
+        print(outer_param1)
 
-# PandasのDataFrameに変換して、列名をつける
-df = pd.DataFrame(data, columns=['A', 'B', 'C'])
+    inner()
 
-# 表示
-print("=== DataFrame ===")
-print(df)
+#outer("outer arg")
 
-# 各列の平均を計算して表示
-print("\n=== Mean of each column ===")
-print(df.mean())
+#カプセル化 Encapsulation
+def casino_entrance(age, min_age=21):
+    if age <= min_age:
+        print(f"{min_age} Sorry you are too young")
+        return
+    
+    def inner_casino_entrance():
+        print("Welcome to Casino")
+    
+    inner_casino_entrance()
+
+casino_entrance(2)
